@@ -1,0 +1,74 @@
+{
+	"pages": [
+	{
+		"path" : "pages/entertainment/entertainment",
+		"style" : 
+		{
+			"navigationBarTitleText" : "娱乐"
+		}
+	},
+	{
+		"path" : "pages/physicalCulture/physicalCulture",
+		"style" : 
+		{
+			"navigationBarTitleText" : "体育"
+		}
+	},
+	{
+		"path" : "pages/international/international",
+		"style" : 
+		{
+			"navigationBarTitleText" : "国际"
+		}
+	},
+	{
+		"path" : "pages/cylinder/cylinder",
+		"style" : 
+		{
+			"navigationBarTitleText" : "柱状图"
+		}
+	},
+	{
+		"path" : "pages/xiangqing/xiangqing",
+		"style" : 
+		{
+			"navigationBarTitleText" : ""
+		}
+	},
+	{
+		"path" : "pages/tianjia/tianjia",
+		"style" : 
+		{
+			"navigationBarTitleText" : ""
+		}
+	}],
+	"tabBar": {
+		"list": [
+			{
+				"pagePath": "pages/physicalCulture/physicalCulture",
+				"text": "体育"
+			},
+			{
+				"pagePath": "pages/cylinder/cylinder",
+				"text": "柱状图"
+			},
+			{
+				"pagePath": "pages/entertainment/entertainment",
+				"text": "娱乐"
+			},
+			{
+				"pagePath": "pages/international/international",
+				"text": "国际"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	}
+}
