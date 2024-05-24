@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.demos.web.number_user;
 import com.example.demo.pojo.classTb;
 import com.example.demo.service.ClassTbService;
@@ -64,8 +66,16 @@ public class ClassTbController {
         classTbService.post(classname,classification,url1,url2,url3,particulars);
     }
 
+    @ApiOperation(value = "删除")
     @DeleteMapping("delete")
     public void delete(@RequestParam Integer id){
         classTbService.delete(id);
     }
+
+    @ApiOperation(value = "分页")
+    @GetMapping("selectByPage")
+    public IPage<classTb> selectByPage(@RequestParam Integer current, @RequestParam Integer size){
+        return classTbService.selectByPage(new Page<classTb>(current,size));
+    }
+
 }

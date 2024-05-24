@@ -39,7 +39,7 @@
 		"path" : "pages/tianjia/tianjia",
 		"style" : 
 		{
-			"navigationBarTitleText" : ""
+			"navigationBarTitleText" : "增删改查"
 		}
 	}],
 	"tabBar": {
@@ -59,6 +59,10 @@
 			{
 				"pagePath": "pages/international/international",
 				"text": "国际"
+			},
+			{
+				"pagePath": "pages/tianjia/tianjia",
+				"text": "增删改查"
 			}
 		]
 	},

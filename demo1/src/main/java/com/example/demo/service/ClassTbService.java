@@ -1,12 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.demos.web.number_user;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.pojo.classTb;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashMap;
 import java.util.List;
 
 public interface ClassTbService {
@@ -25,4 +22,7 @@ public interface ClassTbService {
     void post(String classname,String classification, String url1, String url2, String url3, String particulars);
 
     void delete(Integer id);
+
+
+    IPage<classTb> selectByPage(Page<classTb> classTbPage);
 }

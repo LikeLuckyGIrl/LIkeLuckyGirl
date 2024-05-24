@@ -60,7 +60,7 @@
 <script>
 	import {
 		post,
-		selectAll,
+		selectByPage,
 		deleteid
 	} from '../../common/api'
 	export default {
@@ -88,9 +88,7 @@
 		},
 		onLoad() {
 			this.selectedIndexs = []
-			selectAll().then((res) => {
-				this.tableData = res[1].data
-			})
+			this.getData(this.pageCurrent)
 		},
 		methods: {
 			// 多选处理
@@ -117,12 +115,20 @@
 				this.getData(1, this.searchVal)
 			},
 			DELETE(id) {
-				console.log(id)
 				deleteid(id)
 			},
 			postb(){
 				console.log(this.posta)
 				post(this.posta.classification,this.posta.particulars,this.posta.url1,this.posta.url2,this.posta.url3,this.posta.classname)
+			},
+			getData(pageCurrent){
+				setTimeout(()=>{
+					selectByPage(pageCurrent).then((res) => {
+						this.tableData = res[1].data.records
+						this.total = res[1].data.total
+					})
+				},500)
+				
 			}
 			
 

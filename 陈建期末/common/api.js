@@ -31,9 +31,9 @@ export function post(classification,particulars,url1,url2,url3,classname){
 		method:"POST"
 	})
 }
-export function selectAll(){
+export function selectByPage(current){
 	return uni.request({
-		url:`${baseUrl}/selectAll`
+		url:`${baseUrl}/selectByPage?current=${current}&size=10`
 	})
 }
 export function deleteid(id){

@@ -1,7 +1,8 @@
 package com.example.demo.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.example.demo.demos.web.number_user;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.mapper.classTbMapper;
 import com.example.demo.pojo.classTb;
 import com.example.demo.service.ClassTbService;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class ClassTbServiceimpl implements ClassTbService {
@@ -93,6 +93,11 @@ public class ClassTbServiceimpl implements ClassTbService {
     @Override
     public void delete(Integer id) {
         mapper.deleteById(id);
+    }
+
+    @Override
+    public IPage<classTb> selectByPage(Page<classTb> classTbPage) {
+        return mapper.selectPage(classTbPage,null);
     }
 
 
