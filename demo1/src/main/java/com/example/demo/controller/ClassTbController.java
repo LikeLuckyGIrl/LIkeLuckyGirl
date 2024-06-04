@@ -9,6 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.apache.ibatis.annotations.Update;
 import org.omg.CORBA.INTERNAL;
 import org.springframework.web.bind.annotation.*;
 
@@ -62,8 +63,8 @@ public class ClassTbController {
 
     @ApiOperation(value = "添加")
     @PostMapping("post")
-    public void post(@RequestParam String classname,@RequestParam String classification,@RequestParam String url1,@RequestParam String url2,@RequestParam String url3,@RequestParam String particulars){
-        classTbService.post(classname,classification,url1,url2,url3,particulars);
+    public void post(@RequestBody classTb classTb){
+        classTbService.post(classTb);
     }
 
     @ApiOperation(value = "删除")
@@ -78,4 +79,8 @@ public class ClassTbController {
         return classTbService.selectByPage(new Page<classTb>(current,size));
     }
 
+    @PostMapping("put")
+    public void put(@RequestBody classTb classTb){
+        classTbService.put(classTb);
+    }
 }

@@ -56,5 +56,16 @@
         },
         "usingComponents" : true
     },
-    "vueVersion" : "2"
+    "vueVersion" : "2",
+    "h5" : {
+        "title" : "陈建期末作业",
+        "router" : {
+            "base" : "/h5",
+            "mode" : "hash"
+        },
+        "devServer" : {
+            "https" : false,
+            "port" : 30001
+        }
+    }
 }

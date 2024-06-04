@@ -79,15 +79,8 @@ public class ClassTbServiceimpl implements ClassTbService {
     }
 
     @Override
-    public void post(String classname,String classification, String url1, String url2, String url3, String particulars){
-        classTb User = new classTb();
-        User.setClassname(classname);
-        User.setClassification(classification);
-        User.setUrl1(url1);
-        User.setUrl2(url2);
-        User.setUrl3(url3);
-        User.setParticulars(particulars);
-        mapper.insert(User);
+    public void post(classTb classTb){
+        mapper.insert(classTb);
     }
 
     @Override
@@ -98,6 +91,11 @@ public class ClassTbServiceimpl implements ClassTbService {
     @Override
     public IPage<classTb> selectByPage(Page<classTb> classTbPage) {
         return mapper.selectPage(classTbPage,null);
+    }
+
+    @Override
+    public void put(classTb classTb) {
+        mapper.updateById(classTb);
     }
 
 

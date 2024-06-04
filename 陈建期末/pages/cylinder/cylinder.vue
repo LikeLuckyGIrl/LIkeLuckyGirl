@@ -41,7 +41,7 @@
 		},
 		onLoad() {
 			//this.getServerData();
-			/*zhuang().then((res) => {
+			zhuang().then((res) => {
 				console.log(res[1].data);
 				const categories = res[1].data.map(item => item.classification)
 				const values = res[1].data.map(item => item.shu)
@@ -54,34 +54,34 @@
 				}
 				this.chartData = JSON.parse(JSON.stringify(zzz));
 			})
-			*/
+			
 		   
 		},
-		onReady() {
-			this.getServerData();
-		},
+		// onReady() {
+		// 	this.getServerData();
+		// },
 		methods: {
-			getServerData(){
-				var then =this
-				setTimeout(() => {
-					uni.request({
-						url: 'http://127.0.0.1:7001/selectcad',
-						success(abc) {
-							const categories = abc.data.map(item => item.classification)
-							const values = abc.data.map(item => item.shu)
-							let res = {
-								categories: categories,
-								series: [{
-										name: "看着写",
-										data:values
-									}
-								]
-							}
-							then.chartData = JSON.parse(JSON.stringify(res));
-						}
-					})
-				}, 500);
-			}
+			// getServerData(){
+			// 	var then =this
+			// 	setTimeout(() => {
+			// 		uni.request({
+			// 			url: 'http://127.0.0.1:7001/selectcad',
+			// 			success(abc) {
+			// 				const categories = abc.data.map(item => item.classification)
+			// 				const values = abc.data.map(item => item.shu)
+			// 				let res = {
+			// 					categories: categories,
+			// 					series: [{
+			// 							name: "看着写",
+			// 							data:values
+			// 						}
+			// 					]
+			// 				}
+			// 				then.chartData = JSON.parse(JSON.stringify(res));
+			// 			}
+			// 		})
+			// 	}, 500);
+			// }
 			
 		}
 	};

@@ -19,10 +19,13 @@ public interface ClassTbService {
 
     List<classTb> selectabc(String ss);
 
-    void post(String classname,String classification, String url1, String url2, String url3, String particulars);
+    void post(classTb classTb);
 
     void delete(Integer id);
 
 
     IPage<classTb> selectByPage(Page<classTb> classTbPage);
+
+
+    void put(classTb classTb);
 }

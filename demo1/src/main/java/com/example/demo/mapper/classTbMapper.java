@@ -15,5 +15,4 @@ import java.util.List;
 public interface classTbMapper extends BaseMapper<classTb> {
     @Select("SELECT classification, COUNT(*) AS shu FROM class_tb GROUP BY classification")
     List<classTb> selectcad();
-
 }
