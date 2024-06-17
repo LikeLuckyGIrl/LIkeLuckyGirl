@@ -1,1 +1,0 @@
-export const baseUrl="http://8.140.245.208:7071"
