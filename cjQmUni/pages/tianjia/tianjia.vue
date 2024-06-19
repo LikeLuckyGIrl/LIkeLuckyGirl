@@ -23,7 +23,7 @@
 					<uni-td align="center">{{ item.urlThree.slice(0, 20) }}</uni-td>
 					<uni-td>
 						<view class="uni-group">
-							<button class="uni-button" size="mini" type="primary" @tap="puta(item.id)">修改</button>
+							<button class="uni-button" size="mini" type="primary" @tap="puta(item)">修改</button>
 							<button class="uni-button" size="mini" type="warn" @tap="DELETE(item.id)">删除</button>
 						</view>
 					</uni-td>
@@ -191,9 +191,9 @@
 					})
 				}, 500)
 			},
-			puta(id) {
+			puta(item) {
 				this.isModalVisible = true
-				this.formData.id = id
+				this.formData = item
 			},
 			hideModal() {
 				this.isModalVisible = false
