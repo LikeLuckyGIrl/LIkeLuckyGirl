@@ -32,7 +32,7 @@
 			<view class="uni-pagination-box"><uni-pagination show-icon :page-size="pageSize" :current="pageCurrent"
 					:total="total" @change="change" /></view>
 		</view>
-		<view class="">
+		<view class="czd">
 			<uni-table>
 				<uni-tr>
 					<uni-th align="center">分类</uni-th>
@@ -111,7 +111,7 @@
 	export default {
 		data() {
 			return {
-				luan:[],
+				luan: [],
 				searchVal: '',
 				tableData: [],
 				// 每页数据量
@@ -178,7 +178,7 @@
 			},
 			postb() {
 				console.log(this.posta)
-				post('post',this.posta)
+				post('post', this.posta)
 				this.getData(this.luan.current)
 			},
 			getData(pageCurrent) {
@@ -203,7 +203,7 @@
 				let aa = 'put'
 				console.log(this.formData)
 				console.log("99999999999")
-				post(aa,cad)
+				post(aa, cad)
 				this.hideModal();
 				uni.showToast({
 					title: '表单已提交！',
@@ -216,6 +216,20 @@
 </script>
 
 <style>
+	.czd uni-table uni-tr uni-td input {
+		border: solid 4rpx #7e7e7e;
+		background-color: #ccc;
+		border-radius: 50rpx;
+		padding: 0 20rpx;
+	}
+
+	.form-item input {
+		border: solid 4rpx #7e7e7e;
+		background-color: #ccc;
+		border-radius: 50rpx;
+		padding: 0 20rpx;
+	}
+
 	/* #ifndef H5 */
 	/* page {
 		padding-top: 85px;
@@ -227,7 +241,10 @@
 	}
 
 	input {
-		background-color: aqua;
+		border: solid 4rpx #7e7e7e;
+		background-color: #ccc;
+		border-radius: 50rpx;
+		padding: 0 20rpx;
 	}
 
 	/* 样式调整 */

@@ -1,7 +1,24 @@
 <template>
     <view>
-		<view class="" style="background-color: #dfdfdf; border: solid black 4rpx;">
-			<input type="text" @input="zz"/>
+		<view class="" style="background-color: #dfdfdf; border: solid black 4rpx; margin: 0 auto; width: 80%; border-radius: 50rpx;">
+			<input type="text" @input="sousuo($event)" style="padding: 0 20rpx;"/>
+		</view>
+		<view class="" v-if="sousuokuang">
+			<view v-for="(item, index) in sousuokuang" :key="index">
+			            <view class="article-item" @tap="handleToxiangqing(item.id)">
+			                <view class="article-title">
+			                    <h3>{{ item.className }}</h3>
+			                </view>
+			
+			                <!-- 图片展示 -->
+			                <view class="image-container">
+			                    <image v-for="image in [item.urlOne, item.urlTwo, item.urlThree]" :src="image" mode="widthFix" class="article-image"></image>
+			                </view>
+			
+			                <!-- 更新时间 -->
+			                <view class="update-time">{{ item.updateTime }}</view>
+			            </view>
+			        </view>
 		</view>
         <view class="tab-bar">
             <!-- 体育按钮 -->
@@ -42,18 +59,24 @@
         data() {
             return {
                 shujv: [],
-                zzz: 'selectByClassification?classification=体育', // Default to '体育'
-                activeTab: '体育' // Track the active tab
+                zzz: '测试?current=1&size=3&classification=体育', // Default to '体育'
+                activeTab: '体育' ,// Track the active tab
+				current: 1,
+				size: 3,
+				sousuokuang:[]
             }
         },
         created() {
             // Fetch articles for the default category on component creation
             this.xinwen(this.zzz);
         },
+		onReachBottom() {
+			this.zz()
+		},
         methods: {
             xinwen(zzz) {
                 get(zzz).then((res) => {
-                    this.shujv = res[1].data;
+                    this.shujv = res[1].data.records;
                     console.log(this.shujv);
                 });
             },
@@ -65,16 +88,37 @@
             },
             // Method to switch tabs
             switchTab(tab) {
-                this.zzz = `selectByClassification?classification=${tab}`;
-                this.activeTab = tab;
+				let then = this
+				if(tab != undefined){
+					this.activeTab = tab;
+					console.log(tab)
+					then.size = 3
+					console.log("666"+then.size)
+				}else{
+					console.log("空")
+				}
+                this.zzz = `测试?current=1&size=${this.size}&classification=${this.activeTab}`;
                 this.xinwen(this.zzz);
             },
-			zz(event){
-				console.log("zz",event.target.value);
-				let zz = event.target.value
-				let aa = `selectabc?ss=${zz}`
-				this.xinwen(aa)
+			sousuo(event){
+				console.log("zz9",event.detail);
+				if(event.detail.value != ""){
+					let zz = event.detail.value
+					let aa = `selectabc?ss=${zz}`
+					get(aa).then((res)=>{
+						console.log(res[1].data);
+						this.sousuokuang = res[1].data
+						console.log("99",this.sousuokuang)
+					})
+				}else{
+					this.sousuokuang = null
+				}
 				
+			},
+			zz(){
+				this.size+=3
+				console.log(this.size)
+				this.switchTab()
 			}
         }
     }
