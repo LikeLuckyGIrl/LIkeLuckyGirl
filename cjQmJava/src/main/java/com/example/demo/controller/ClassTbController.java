@@ -79,6 +79,7 @@ public class ClassTbController {
         return classTbService.selectByPage(new Page<classTb>(current,size));
     }
 
+    @ApiOperation(value = "修改")
     @PostMapping("put")
     public void put(@RequestBody classTb classTb){
         classTbService.put(classTb);
